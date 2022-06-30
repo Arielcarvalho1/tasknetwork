@@ -2,6 +2,7 @@ import { Router } from "express";
 import { AuthenticateUserController } from "./controllers/AuthenticateUserController";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { TestController } from "./controllers/TestController";
+import { ensureAuthenticated } from "./middlewares/EnsureAuthenticated";
 
 const router = Router();
 
@@ -12,6 +13,6 @@ const authenticateUserController = new AuthenticateUserController();
 
 // My routes
 router.get("/test", testController.handle);
-router.post("/users/create", createUserController.handle);
+router.post("/users/create", ensureAuthenticated, createUserController.handle);
 router.post("/login", authenticateUserController.handle);
 export { router };
