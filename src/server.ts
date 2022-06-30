@@ -1,6 +1,7 @@
 import "express-async-errors"; // This will allow express to handle async errors seen as it doesn't support it in its vanilla state.
 import "reflect-metadata";
-import express, { Request, Response, NextFunction } from "express";
+import express, { Request, Response, NextFunction } from "express"; 
+import "./database/CreateConnection"
 import { router } from "./routes";
 
 const app = express();
