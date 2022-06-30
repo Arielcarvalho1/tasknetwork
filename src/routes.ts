@@ -17,8 +17,8 @@ const updateTaskController = new UpdateTaskController();
 
 // My routes
 router.get("/test", testController.handle);
-router.post("/users/create", ensureAuthenticated, createUserController.handle);
+router.post("/users/create", createUserController.handle);
 router.post("/login", authenticateUserController.handle);
-router.post("/task/create", ensureAuthenticated, createTaskController.handle);
+router.post("/task/create", createTaskController.handle);
 router.post("/task/update", ensureAuthenticated, updateTaskController.handle)
 export { router };
